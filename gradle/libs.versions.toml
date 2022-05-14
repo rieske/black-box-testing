@@ -10,7 +10,7 @@ postgres = "org.postgresql:postgresql:42.3.5"
 assertj = "org.assertj:assertj-core:3.22.0"
 restAssured = "io.rest-assured:rest-assured:5.0.1"
 testcontainers = "org.testcontainers:testcontainers:1.17.1"
-wiremock = "com.github.tomakehurst:wiremock-jre8:2.32.0"
+wiremock = "com.github.tomakehurst:wiremock-jre8:2.33.2"
 
 [plugins]
 docker = { id = "com.palantir.docker", version = "0.32.0" }
