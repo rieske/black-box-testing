@@ -1,5 +1,7 @@
 # black-box-testing
 
+[![Actions Status](https://github.com/rieske/black-box-testing/workflows/main/badge.svg)](https://github.com/rieske/black-box-testing/actions)
+
 This repository demonstrates an implementation-agnostic approach for testing (micro)services.
 
 ## Why?
