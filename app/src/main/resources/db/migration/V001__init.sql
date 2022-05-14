@@ -1,0 +1,4 @@
+CREATE TABLE messages(
+    id UUID NOT NULL PRIMARY KEY,
+    payload TEXT NOT NULL UNIQUE
+);

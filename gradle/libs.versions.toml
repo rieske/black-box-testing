@@ -1,0 +1,16 @@
+[libraries]
+# Production
+sparkJava = "com.sparkjava:spark-core:2.9.3"
+logback = "ch.qos.logback:logback-classic:1.2.11"
+hikari = "com.zaxxer:HikariCP:5.0.1"
+flyway = "org.flywaydb:flyway-core:8.5.10"
+postgres = "org.postgresql:postgresql:42.3.4"
+
+# Test
+assertj = "org.assertj:assertj-core:3.22.0"
+restAssured = "io.rest-assured:rest-assured:5.0.1"
+testcontainers = "org.testcontainers:testcontainers:1.17.1"
+wiremock = "com.github.tomakehurst:wiremock-jre8:2.32.0"
+
+[plugins]
+docker = { id = "com.palantir.docker", version = "0.32.0" }
