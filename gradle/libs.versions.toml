@@ -3,7 +3,7 @@
 sparkJava = "com.sparkjava:spark-core:2.9.3"
 logback = "ch.qos.logback:logback-classic:1.2.11"
 hikari = "com.zaxxer:HikariCP:5.0.1"
-flyway = "org.flywaydb:flyway-core:8.5.11"
+flyway = "org.flywaydb:flyway-core:8.5.12"
 postgres = "org.postgresql:postgresql:42.3.5"
 
 # Test
