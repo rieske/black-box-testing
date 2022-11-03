@@ -1,7 +1,7 @@
 [libraries]
 # Production
 sparkJava = "com.sparkjava:spark-core:2.9.4"
-logback = "ch.qos.logback:logback-classic:1.4.0"
+logback = "ch.qos.logback:logback-classic:1.4.4"
 hikari = "com.zaxxer:HikariCP:5.0.1"
 flyway = "org.flywaydb:flyway-core:9.6.0"
 postgres = "org.postgresql:postgresql:42.5.0"
