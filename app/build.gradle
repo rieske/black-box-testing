@@ -62,9 +62,15 @@ tasks.withType(AbstractArchiveTask).configureEach {
     reproducibleFileOrder = true
 }
 
-docker {
-    name = "${rootProject.name}:snapshot"
-    files(tasks.named("distTar"))
+tasks.register("prepareDockerContext", Copy) {
+    into("build/docker")
+    from(tasks.named("distTar"))
+    from("Dockerfile")
+}
+
+tasks.register("docker", com.bmuschko.gradle.docker.tasks.image.DockerBuildImage) {
+    dependsOn("prepareDockerContext")
+    images.add("${rootProject.name}:snapshot")
 }
 
 application {

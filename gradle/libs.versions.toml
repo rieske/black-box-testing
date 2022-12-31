@@ -13,4 +13,4 @@ testcontainers = "org.testcontainers:testcontainers:1.17.6"
 wiremock = "com.github.tomakehurst:wiremock-jre8:2.35.0"
 
 [plugins]
-docker = { id = "com.palantir.docker", version = "0.34.0" }
+docker = { id = "com.bmuschko.docker-remote-api", version = "9.1.0" }
