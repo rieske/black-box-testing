@@ -1,6 +1,6 @@
 plugins {
     id("application")
-    alias(libs.plugins.docker)
+    alias(libs.plugins.javaService)
 }
 
 java {
@@ -15,62 +15,14 @@ dependencies {
     implementation(libs.postgres)
     implementation(libs.hikari)
     implementation(libs.flyway)
-}
 
-def jUnitVersion = "5.8.2"
-testing {
-    suites {
-        test {
-            useJUnitJupiter(jUnitVersion)
-            dependencies {
-                implementation(libs.assertj)
-            }
-        }
-        blackBoxTest(JvmTestSuite) {
-            useJUnitJupiter(jUnitVersion)
-            targets {
-                all {
-                    testTask.configure {
-                        shouldRunAfter(test)
-                        dependsOn(tasks.named("docker"))
-                        inputs.files(file("Dockerfile"), tasks.named("distTar")).withPathSensitivity(PathSensitivity.RELATIVE)
-                    }
-                }
-            }
-            dependencies {
-                implementation(libs.assertj)
-                implementation(libs.restAssured)
-                implementation(libs.testcontainers)
-                implementation(libs.wiremock)
-                implementation(libs.logback)
-            }
-        }
-    }
-}
+    testImplementation(libs.assertj)
 
-tasks.named("check") {
-    it.dependsOn(testing.suites.blackBoxTest)
-}
-
-tasks.named("build") {
-    it.dependsOn(tasks.named("docker"))
-}
-
-// Make the build reproducible - this enables caching and reusing the artifacts
-tasks.withType(AbstractArchiveTask).configureEach {
-    preserveFileTimestamps = false
-    reproducibleFileOrder = true
-}
-
-tasks.register("prepareDockerContext", Copy) {
-    into("build/docker")
-    from(tasks.named("distTar"))
-    from("Dockerfile")
-}
-
-tasks.register("docker", com.bmuschko.gradle.docker.tasks.image.DockerBuildImage) {
-    dependsOn("prepareDockerContext")
-    images.add("${rootProject.name}:snapshot")
+    blackBoxTestImplementation(libs.assertj)
+    blackBoxTestImplementation(libs.restAssured)
+    blackBoxTestImplementation(libs.testcontainers)
+    blackBoxTestImplementation(libs.wiremock)
+    blackBoxTestImplementation(libs.logback)
 }
 
 application {
