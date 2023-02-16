@@ -4,7 +4,7 @@ sparkJava = "com.sparkjava:spark-core:2.9.4"
 logback = "ch.qos.logback:logback-classic:1.4.5"
 hikari = "com.zaxxer:HikariCP:5.0.1"
 flyway = "org.flywaydb:flyway-core:9.14.1"
-postgres = "org.postgresql:postgresql:42.5.3"
+postgres = "org.postgresql:postgresql:42.5.4"
 
 # Test
 assertj = "org.assertj:assertj-core:3.24.2"
