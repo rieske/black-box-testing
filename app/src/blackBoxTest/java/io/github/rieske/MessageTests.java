@@ -8,7 +8,8 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
 import static org.hamcrest.Matchers.equalTo;
 
-class MessageTests extends BlackBoxTest {
+@BlackBoxTest
+class MessageTests {
     @Test
     void createsNewMessage() {
         var location = given().body("some message").when().post("/api/messages")

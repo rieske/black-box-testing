@@ -8,6 +8,7 @@ import spark.Request;
 
 import javax.sql.DataSource;
 
+import java.time.Duration;
 import java.util.UUID;
 
 import static spark.Spark.awaitInitialization;
@@ -80,7 +81,7 @@ class Server {
         var config = new HikariConfig();
         config.setPoolName("db");
         config.setMaximumPoolSize(5);
-        config.setInitializationFailTimeout(1000 * 5);
+        config.setInitializationFailTimeout(Duration.ofSeconds(10).toMillis());
         config.setDataSource(dataSource);
         return new HikariDataSource(config);
     }

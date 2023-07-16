@@ -4,7 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.when;
 
-class PingTest extends BlackBoxTest {
+@BlackBoxTest
+class PingTest {
     @Test
     void respondsWith200() {
         when().get("/ping").then().statusCode(200);
