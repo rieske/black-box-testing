@@ -13,4 +13,4 @@ testcontainers = "org.testcontainers:testcontainers:1.19.1"
 wiremock = "com.github.tomakehurst:wiremock-jre8:3.0.1"
 
 [plugins]
-javaService = { id = "io.github.rieske.java-service", version = "1.0.1" }
+javaService = { id = "io.github.rieske.java-service", version = "1.0.2" }
