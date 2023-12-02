@@ -64,7 +64,9 @@ public class TestEnvironment {
             .waitingFor(Wait.forListeningPort());
 
     static {
-        Stream.of(DATABASE_CONTAINER, WIREMOCK_CONTAINER, SERVICE_CONTAINER).parallel().forEach(GenericContainer::start);
+        DATABASE_CONTAINER.start();
+        WIREMOCK_CONTAINER.start();
+        SERVICE_CONTAINER.start();
 
         var logConfig = LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL);
         var config = RestAssuredConfig.config()
