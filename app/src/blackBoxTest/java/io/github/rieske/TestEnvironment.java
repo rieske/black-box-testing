@@ -18,7 +18,6 @@ import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.utility.DockerImageName;
 
 import java.util.Map;
-import java.util.stream.Stream;
 
 public class TestEnvironment {
     private static final Logger LOGGER = LoggerFactory.getLogger(TestEnvironment.class);
@@ -41,7 +40,6 @@ public class TestEnvironment {
             .withLogConsumer(new Slf4jLogConsumer(LOGGER).withPrefix(SERVICE_NAME))
             .withExposedPorts(APP_PORT)
             .waitingFor(Wait.forListeningPort())
-            .waitingFor(Wait.forHealthcheck())
             .withEnv("JDBC_URL", JDBC_URL)
             .withEnv("DB_USER", DB_USERNAME)
             .withEnv("DB_PASSWORD", DB_PASSWORD);
