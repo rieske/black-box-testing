@@ -41,6 +41,7 @@ public class TestEnvironment {
             .withLogConsumer(new Slf4jLogConsumer(LOGGER).withPrefix(SERVICE_NAME))
             .withExposedPorts(APP_PORT)
             .waitingFor(Wait.forListeningPort())
+            .waitingFor(Wait.forHealthcheck())
             .withEnv("JDBC_URL", JDBC_URL)
             .withEnv("DB_USER", DB_USERNAME)
             .withEnv("DB_PASSWORD", DB_PASSWORD);
