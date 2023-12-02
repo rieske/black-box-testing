@@ -41,6 +41,7 @@ public class TestEnvironment {
             .withLogConsumer(new Slf4jLogConsumer(LOGGER).withPrefix(SERVICE_NAME))
             .withExposedPorts(APP_PORT)
             .waitingFor(Wait.forListeningPort())
+            .waitingFor(Wait.forHealthcheck())
             .withEnv("JDBC_URL", JDBC_URL)
             .withEnv("DB_USER", DB_USERNAME)
             .withEnv("DB_PASSWORD", DB_PASSWORD);
@@ -63,7 +64,9 @@ public class TestEnvironment {
             .waitingFor(Wait.forListeningPort());
 
     static {
-        Stream.of(DATABASE_CONTAINER, WIREMOCK_CONTAINER, SERVICE_CONTAINER).parallel().forEach(GenericContainer::start);
+        DATABASE_CONTAINER.start();
+        WIREMOCK_CONTAINER.start();
+        SERVICE_CONTAINER.start();
 
         var logConfig = LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL);
         var config = RestAssuredConfig.config()
