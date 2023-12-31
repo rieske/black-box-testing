@@ -7,7 +7,7 @@ flyway = "org.flywaydb:flyway-database-postgresql:10.4.1"
 postgres = "org.postgresql:postgresql:42.7.1"
 
 # Test
-assertj = "org.assertj:assertj-core:3.24.2"
+assertj = "org.assertj:assertj-core:3.25.0"
 restAssured = "io.rest-assured:rest-assured:5.4.0"
 testcontainers = "org.testcontainers:testcontainers:1.19.3"
 wiremock = "com.github.tomakehurst:wiremock-jre8:3.0.1"
