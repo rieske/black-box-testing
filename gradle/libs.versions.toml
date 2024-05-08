@@ -9,7 +9,7 @@ postgres = "org.postgresql:postgresql:42.7.3"
 # Test
 assertj = "org.assertj:assertj-core:3.25.3"
 restAssured = "io.rest-assured:rest-assured:5.4.0"
-testcontainers = "org.testcontainers:testcontainers:1.19.7"
+testcontainers = "org.testcontainers:testcontainers:1.19.8"
 wiremock = "com.github.tomakehurst:wiremock-jre8:3.0.1"
 
 [plugins]
